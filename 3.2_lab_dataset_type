@@ -1,0 +1,107 @@
+1.	Dataset Difficulty Ranking (Conceptual Calibration) 数据集难度排名（概念校准）
+
+In this lab, you will compare five datasets discussed in the lecture: MNIST, CIFAR-10, Flowers-17, Kaggle Dogs vs Cats, and ImageNet. Your task is to rank them from easiest to hardest, where 1 represents the easiest classification problem最简单的分类问题 and 5 the most difficult.
+Your ranking must be justified in writing. In your explanation, you should consider factors such as image resolution, number of classes, intra-class variation, dataset size, background complexity, and overall real-world variability. Explain clearly why one dataset is more challenging than another rather than relying on intuition or reputation.
+
+A1.1: Dataset Difficulty Ranking (Conceptual Calibration)
+
+Step 1 – Understand the Five Datasets
+The key characteristics of each dataset:
+# Dataset	         # Classes类别	  # Image Size	   # Images (approx)	   # Key Challenges
+MNIST	               10	          28×28 grey	    70,000	                Simple shapes, centred, clean background
+CIFAR-10	           10	          32×32 RGB      	60,000	                Real objects, cluttered backgrounds, intra class variation 真实物体，杂乱背景，类内差异
+Flowers-17	           17	          variable	        1,360 (80/class)	    Small data, fine grained, scale/pose variation  小规模数据，精细粒度，尺度/姿态变化
+Kaggle Dogs vs Cats	   2	          variable	        25,000.                 Real world photos, background clutter, varied poses 真实世界照片，背景杂乱，姿态多样
+ImageNet	           1000           variable	        1.4M 22000 categories	Massive scale, fine grained, extreme variability 大规模数据，精细粒度，极端差异
+
+Step 2 – Define Difficulty Factors 定义难度因素
+•	Image resolution 图像分辨率 – higher resolution can mean more detail, but also more noise. 更高的分辨率意味着更多的细节，但也意味着更多的噪声。
+•	Number of classes 类别数量 – more classes generally increase difficulty. 类别越多，难度通常越大。
+•	Intra class variation 类内差异 –  objects of the same class look very different (e.g., dogs in different poses, backgrounds).同一类别的物体看起来可能截然不同（例如，不同姿态、不同背景的狗）。
+•	Dataset size 数据集大小 – smaller datasets are harder to generalise from. 数据集大小 – 较小的数据集更难进行泛化
+•	Background complexity 背景复杂性 – cluttered backgrounds make object recognition harder. 杂乱的背景会增加物体识别的难度。
+•	Real world variability 真实世界的变异性- includes lighting, occlusion, viewpoint changes.包括光照、遮挡、视角变化
+
+Step 3 – Rank from Easiest to Hardest (1 = easiest, 5 = hardest)
+Based on the above factors, a reasonable ranking is:
+1.	MNIST – extremely constrained, clean, low variation, large enough for its simplicity.
+2.	Kaggle Dogs vs Cats – only two classes, large dataset, but real world variability makes it harder than MNIST.
+3.	CIFAR 10 – more classes (10), small images, but significant intra class variation and background clutter. 但存在显著的类内差异和背景杂乱。
+4.	Flowers 17 – small dataset, fine grained distinctions, high variation in scale/background, though only 17 classes.
+5.	ImageNet – 1000 classes, huge intra class variation, real world complexity, massive scale.
+
+Step 4 – Justify the Ranking in Writing
+MNIST is the easiest because digits are centred, have consistent size, and the background is plain black. In contrast, ImageNet is the hardest: it contains 1000 diverse categories with objects photographed under every conceivable condition, requiring models to learn truly generalisable features. MNIST 数据集最简单，因为数字居中、大小一致，且背景为纯黑色。相比之下，ImageNet 数据集最难：它包含 1000 个不同的类别，物体在各种可能条件下拍摄，这要求模型学习真正具有泛化能力的特征。
+
+After completing your individual ranking, compare your results with a partner. Identify where your rankings differ and discuss the reasoning behind your choices. Try to reach a shared conclusion and briefly describe how your understanding of dataset difficulty may have changed during the discussion.
+
+A1.2: we discussed clarified the importance of dataset size versus class count.
+
+Finally, write a short paragraph reflecting on what “dataset difficulty” 数据集难度actually means. Consider whether it is determined mainly by the number of classes, visual ambiguity, dataset size, variation within classes, or a combination of these factors.
+
+A1.3: Reflect on “Dataset Difficulty”
+Dataset difficulty is a multi faceted concept多方面的概念. It is not simply the number of classes, but the interplay互相作用 of class count, intra class variation, image quality, dataset size, and real world noise. A dataset with few classes but high variation can be far more challenging than one with many classes but highly controlled settings. 数据集难度是一个多方面的概念。它不仅仅指类别数量，而是类别数量、类内变异、图像质量、数据集大小以及真实世界噪声等因素相互作用的结果。一个类别少但变异大的数据集可能比一个类别多但设置高度可控的数据集更具挑战性。
+
+
+
+
+
+
+
+2.	The Illusion of Accuracy准确性的错觉
+
+Imagine that one student trains a neural network on MNIST and achieves 99 percent accuracy. Another student trains a model on Flowers-17 and achieves 72 percent accuracy. At first glance, the first model appears superior第一个模型似乎更胜一筹. However, this comparison比较 is incomplete 并不全面and potentially misleading具有误导性.
+In this section, you must analyze why accuracy alone is insufficient for evaluating model quality分析为什么仅凭准确率不足以评估模型的质量. Discuss how dataset complexity数据集的复杂性, number of classes类别的数量, and variation变异性 influence achievable accuracy可达到的准确性. Consider whether 72 percent on a small, highly variable dataset might represent stronger modeling ability than near-perfect performance on a simple dataset.
+
+A2.1: 
+Step 1 – Recognise Why Accuracy Alone is Misleading
+Explain that accuracy must be interpreted in the context of the dataset. 99% on MNIST is expected, while 72% on Flowers‑17 may indicate a very strong model because the dataset is small and highly variable. The absolute number tells me nothing without knowing the baseline or the difficulty. 解释一下，准确率必须结合数据集来解读。在 MNIST 数据集上达到 99% 的准确率是预期的，而在 Flowers-17 数据集上达到 72% 的准确率可能表明模型非常出色，因为该数据集规模较小且变异性很高。如果不了解基线数据或难度，绝对值本身并不能说明任何问题。
+
+Step 2 – Analyse the Flowers 17 vs MNIST Example
+Achieving 72% on Flowers 17 likely requires the model to handle fine grained differences, varied backgrounds, and limited training examples – a much harder task than recognising centred digits. Thus the lower accuracy may actually reflect superior modelling ability.
+
+Extend your reasoning further. Suppose a model achieves 95 percent accuracy on CIFAR-10. What hidden problems could still exist? Could there be dataset leakages数据集泄露 between training and test sets? Could the model be overfitting过度拟合 subtle background patterns rather than learning object structure? Could the test set be too similar to the training set?
+
+A2.2: Extend to CIFAR 10 (95% accuracy)
+Consider hidden problems even with high accuracy:
+•	Data leakage数据泄露 – if test images accidentally resemble training images (e.g., same source), the score is inflated分数会被虚高.
+•	Overfitting to backgrounds过度拟合背景 – the model might learn that dogs often appear on grass, so it looks for grass rather than the dog.
+•	Test set similarity测试集相似性 – if the test set is too easy (e.g., all images in similar conditions), the score doesn’t reflect real world performance实际性能.
+
+Write a detailed explanation discussing why evaluation must consider dataset structure数据集的结构, distribution分布, and real-world applicability 实际应用性 rather than relying solely on a single numeric score数值分数. 请详细解释为什么评估必须考虑数据集的结构、分布和实际应用性，而不能仅仅依赖单一的数值分数
+
+A2.3:
+-A single accuracy number hides the dataset’s structure. 
+-Evaluation must consider how the train/test split was made, whether the test set is representative of real world conditions, 
+-and whether the model has truly learned the object concept or merely exploited spurious correlations. For CIFAR 10, 95% might still fail on images with unusual backgrounds or occlusions. 单一的准确率数值掩盖了数据集的结构。评估必须考虑训练集/测试集的划分方式、测试集是否能代表真实世界的情况，以及模型是否真正学习了目标概念，还是仅仅利用了虚假的关联。对于 CIFAR-10 数据集，即使准确率达到 95%，在背景异常或存在遮挡的图像上仍然可能出现识别失败。
+
+
+
+
+
+
+
+3.	Dataset Size and Modeling Strategy数据集规模和建模策略
+
+Consider two separate scenarios. In the first scenario, you have access to only 80 labeled images per class, similar in scale to Flowers-17. In the second scenario, you have access to over one million labeled images across one thousand categories, comparable in scale to ImageNet.
+For the small-data scenario小规模场景, explain what training strategy you would adopt. Discuss whether you would train a neural network from scratch or rely on transfer learning. Explain the concept of freezing layers and fine-tuning冻结层和微调, and justify your reasoning in terms of overfitting risk and feature reuse过拟合风险和特征重用.
+
+A3.1: Small-data scenario - Strategy: Transfer Learning with Fine Tuning
+•	Why not train from scratch? – With so few images, a deep network will massively overfit过度拟合.
+•	Transfer learning迁移学习 – Start from a model pre trained on ImageNet (or similar large dataset). Its lower layers have learned generic features (edges边缘, textures纹理) that are reusable.
+•	Freezing layers冻结层 – Typically freeze the early convolutional layers卷积层 (so their weights are not updated) and only train the classifier head (the final fully connected layers) on the new data. This prevents overfitting 防止过度拟合and speeds up training. 通常冻结早期的卷积层（使其权重不更新），仅使用新数据训练分类器头部（最后的全连接层）。这可以防止过拟合并加快训练速度。
+•	Fine tuning微调 – Optionally, after training the head, we can unfreeze some of the top convolutional layers 卷积层 and continue training with a very low learning rate to adapt the features slightly to the new domain. This must be done carefully to avoid overfitting. 可选地，在训练完头部后，我们可以解冻一些顶部的卷积层，并以非常低的学习率继续训练，以使特征略微适应新的领域。必须谨慎操作以避免过拟合。
+
+For the large-scale scenario, describe how your approach changes. Consider computational requirements, training time, model capacity, and regularization. Discuss how the availability of massive data reduces certain risks while introducing new engineering challenges. 考虑计算需求、训练时间、模型容量和正则化。讨论海量数据的可用性如何在降低某些风险的同时，也带来新的工程挑战。
+
+A3.2: Large-data scenario – Strategy: Train from Scratch (or continue pre training)
+•	Why train from scratch? – With massive data, a deep network can learn robust features稳健的特征 without overfitting 不会过度拟合. I have enough data to train all layers.
+•	Computational requirements计算需求 – I need powerful hardware (multiple GPUs/TPUs) and distributed training techniques分布式训练技术.
+•	Training time – Can be days or weeks; requires careful scheduling and checkpointing检查点机制.
+•	Model capacity 模型容量– I can afford larger models 可以构建更大的模型 (e.g., ResNet 50, EfficientNet B7) because the data will not cause overfitting.
+•	Regularisation正则化 – Even with large data, regularisation (dropout, weight decay衰减, data augmentation增强) is still useful to improve generalisation模型的泛化能力.
+•	Engineering challenges – Managing data pipelines管道, distributed training, and experiment tracking becomes critical. 数据管道管理、分布式训练和实验跟踪变得至关重要
+
+Conclude this section by explaining how dataset size fundamentally shapes modeling decisions. 本节最后解释数据集大小如何从根本上影响建模决策。
+
+A3.3: Dataset size is the primary driver of modeling strategy. Small datasets force the use of transfer learning to avoid overfitting and leverage pre learned features. Large datasets allow training from scratch, enabling the learning of highly specialised features, but introduce computational and engineering challenges. The choice of architecture架构, regularisation正则化, and training procedure训练过程 all hinge on the amount of data available.数据集的大小是建模策略的主要驱动因素。小数据集迫使模型采用迁移学习来避免过拟合，并利用预先学习的特征。大数据集允许从头开始训练，从而学习高度专业化的特征，但也带来了计算和工程方面的挑战。架构、正则化和训练过程的选择都取决于可用数据量。

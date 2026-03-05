@@ -1,3 +1,16 @@
+# 忽略数据集文件夹
 data/
 *.zip
+*.tar
+*.gz
+*.rar
+
+# 忽略 macOS 系统文件
 .DS_Store
+
+# 忽略 Python 缓存和虚拟环境
+__pycache__/
+*.pyc
+venv/
+env/
+catdog/   # 如果 conda 环境在项目内，也要忽略
