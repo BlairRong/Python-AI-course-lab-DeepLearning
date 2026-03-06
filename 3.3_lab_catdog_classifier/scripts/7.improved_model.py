@@ -253,8 +253,3 @@ else:
 # Save improved model
 model.save(os.path.join(os.path.dirname(os.path.dirname(__file__)), 'models', 'improved_model.h5'))
 print("\nImproved model saved to 'models/improved_model.h5'")
-
-
-# Run the improved model:
-# python scripts/improved_model.py
-

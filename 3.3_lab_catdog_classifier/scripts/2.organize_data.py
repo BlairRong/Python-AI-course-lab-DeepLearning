@@ -60,5 +60,3 @@ print(f"Cats: {len(os.listdir(cats_dir))} images")
 print(f"Dogs: {len(os.listdir(dogs_dir))} images")
 
 
-#run the script: 
-#VS Code - View - Terminal - Newterminal - python scripts/organize_data.py

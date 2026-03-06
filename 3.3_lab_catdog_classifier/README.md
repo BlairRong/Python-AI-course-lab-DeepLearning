@@ -26,20 +26,23 @@ This repository contains a complete deep learning project that classifies images
 
 ## 🧠 Model Architecture (Custom CNN)
 
-| Layer Type          | Details                              |
-|---------------------|--------------------------------------|
-| Conv2D + ReLU       | 32 filters, 3×3, input (150,150,3)   |
-| MaxPooling2D        | 2×2                                  |
-| Conv2D + ReLU       | 64 filters, 3×3                      |
-| MaxPooling2D        | 2×2                                  |
-| Conv2D + ReLU       | 128 filters, 3×3                     |
-| MaxPooling2D        | 2×2                                  |
-| Conv2D + ReLU       | 128 filters, 3×3                     |
-| MaxPooling2D        | 2×2                                  |
-| Flatten             |                                      |
-| Dropout             | 0.5                                  |
-| Dense + ReLU        | 512 units                            |
-| Dense + Sigmoid     | 1 unit (binary output)               |
+input image size: (150, 150, 3)
+
+| Layer Type             | Details                                                                       | Output Shape  |  Param # |
+|------------------------|-------------------------------------------------------------------------------|---------------|----------|
+| Conv2D + ReLU          | 32 filters, size 3×3x3 → (3×3×3 + 1 bias) × 32 = 28×32 = 896                  | (148, 148, 32)| 896      |
+| MaxPooling2D           | 2×2 → Downsamples spatial dimensions by factor 2                              | (74, 74, 32)  | 0        |
+| Conv2D + ReLU          | 64 filters, 3×3x32 → (3×3×32 + 1) × 64 = 289×64 = 18,496                      | (72, 72, 64)  | 18,496   |
+| MaxPooling2D           | 2×2                                                                           | (36, 36, 64)  | 0        |
+| Conv2D + ReLU          | 128 filters, 3×3×64 → (3×3×64 + 1) × 128 = 577×128 = 73,856                   | (34, 34, 128) | 73,856   |
+| MaxPooling2D           | 2×2                                                                           | (17, 17, 128) | 0        |
+| Conv2D + ReLU          | 128 filters, 3×3×128 → (3×3×128 + 1) × 128 = 1153×128 = 147,584               | (15, 15, 128) |147,584   |
+| MaxPooling2D           | 2×2                                                                           | (7, 7, 128)   | 0        |
+| Flatten                |  → 7×7×128 = 6272 neurons                                                     | (6272)        | 0        |
+| Dropout                | 0.5 → Regularization – randomly disables 50% of neurons during training.      | (6272)        | 0        |
+| Dense + ReLU           | 512 units → 6272×512 + 512 = 3,211,776                                        | (512)         | 3,211,776|
+| Dense + Sigmoid        | 1 unit (binary output) → 512×1 + 1 = 513                                      | (1)           | 513      |
+| Total trainable params | ~3.45 million                                                                 |               | 3,453,121|
 
 - **Loss**: Binary Crossentropy  
 - **Optimizer**: Adam (learning rate = 0.001)  
@@ -57,12 +60,14 @@ This repository contains a complete deep learning project that classifies images
 ## 🚀 How to Run
 
 1. **Clone the repository**  
+
    ```bash
    git clone https://github.com/BlairRong/Python-AI-course-lab-DeepLearning.git
    cd Python-AI-course-lab-DeepLearning/3.2_lab_catdog_classifier
    ```
 
 2. **Set up the environment** (conda recommended)  
+
    ```bash
    conda create -n catdog python=3.9
    conda activate catdog
@@ -70,24 +75,30 @@ This repository contains a complete deep learning project that classifies images
    ```
 
 3. **Download and prepare the dataset**  
+
    ```bash
-   python scripts/download_data.py
-   python scripts/organize_data.py
+   python scripts/1.download_data.py
+   python scripts/2.organize_data.py
+   python scripts/3.inspect_data.py
+   python scripts/4.preprocess_data.py
    ```
 
 4. **Train the baseline model**  
+
    ```bash
-   python scripts/train_model.py
+   python scripts/5.train_model.py
    ```
 
 5. **Evaluate and visualize predictions**  
+
    ```bash
-   python scripts/evaluate_model.py
+   python scripts/6.evaluate_model.py
    ```
 
 6. **(Optional) Run transfer learning**  
+
    ```bash
-   python scripts/improved_model.py
+   python scripts/7.improved_model.py
    ```
 
 All key outputs (training history, best model, evaluation plots) are saved in the `models/` and `data/` folders.
@@ -99,13 +110,13 @@ All key outputs (training history, best model, evaluation plots) are saved in th
 ├── data/                  # Dataset (ignored by git)
 ├── models/                # Saved model weights
 ├── scripts/               # Python scripts for each step
-│   ├── download_data.py
-│   ├── organize_data.py
-│   ├── inspect_data.py
-│   ├── preprocess_data.py
-│   ├── train_model.py
-│   ├── evaluate_model.py
-│   └── improved_model.py
+│   ├── 1.download_data.py
+│   ├── 2.organize_data.py
+│   ├── 3.inspect_data.py
+│   ├── 4.preprocess_data.py
+│   ├── 5.train_model.py
+│   ├── 6.evaluate_model.py
+│   └── 7.improved_model.py
 ├── requirements.txt       # Dependencies
 └── README.md              # This file
 ```

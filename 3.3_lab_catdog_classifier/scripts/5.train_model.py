@@ -262,4 +262,3 @@ print("\nModel saved to 'models/final_model.h5'")
 
 
 
-# run the training script: python scripts/train_model.py

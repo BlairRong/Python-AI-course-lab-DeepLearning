@@ -63,5 +63,3 @@ def display_samples(cat_images, dog_images):
 display_samples(cat_images, dog_images)
 print("\nSample images saved to data/sample_images.png")
 
-#run the script: 
-#VS Code - View - Terminal - Newterminal - python scripts/inspect_data.py

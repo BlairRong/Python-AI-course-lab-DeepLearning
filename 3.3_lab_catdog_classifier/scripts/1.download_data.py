@@ -39,5 +39,3 @@ print("Extraction complete!")
 print(f"Files extracted to: {data_dir}")
 
 
-#run the script: 
-#VS Code - View - Terminal - Newterminal - python scripts/download_data.py
