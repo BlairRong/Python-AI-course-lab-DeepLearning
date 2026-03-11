@@ -4,9 +4,23 @@ data/
 *.tar
 *.gz
 *.rar
+**/train/
+**/val/
+**/images/
+**/labels/
 
-# 忽略 macOS 系统文件
-.DS_Store
+# 忽略图片和标注文件（如果你不想上传数据集）
+*.jpg
+*.jpeg
+*.png
+
+# 忽略模型权重文件（如果不想上传）
+*.pt
+
+# 忽略视频文件
+*.mp4
+*.avi
+*.mov
 
 # 忽略 Python 缓存和虚拟环境
 __pycache__/
@@ -14,3 +28,7 @@ __pycache__/
 venv/
 env/
 catdog/   # 如果 conda 环境在项目内，也要忽略
+yolo/
+
+# 忽略 macOS 系统文件
+.DS_Store

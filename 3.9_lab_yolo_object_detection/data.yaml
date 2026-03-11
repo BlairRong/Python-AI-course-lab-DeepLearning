@@ -1,0 +1,10 @@
+# Paths of training and validation images 训练和验证图片的路径
+path: /Users/ron/Desktop/Deeplearning/3.9_lab_yolo_object_detection  # 数据集根目录
+train: train/images  # 训练图片路径 (相对于 path)
+val: val/images      # 验证图片路径 (相对于 path)
+
+# Number of categories 类别数量
+nc: 3
+
+# Category names 类别名称
+names: ['red_cup', 'blue_bottle', 'phone']
