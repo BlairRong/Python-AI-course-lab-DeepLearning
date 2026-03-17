@@ -1,0 +1,143 @@
+Todays Lab
+
+2026-03-16
+ 
+Machine Learning Lab – Text Classification
+
+Goal
+In this lab you will build a small sentiment classifier that can determine whether a movie review is positive or negative.
+ 
+You will learn how to:
+ 
+convert text into numerical vectors
+train a machine learning classifier
+evaluate the model
+investigate its limitations
+ 
+Part 1 – Build the Classifier
+In machine learning, text must first be converted into numbers before a model can learn from it.
+Use CountVectorizer to transform the text into numerical vectors.
+Then train a classifier that can predict whether a review is Positive or Negative.
+ 
+You may use tools from scikit-learn, for example:
+CountVectorizer
+SVC
+MultinomialNB
+You are given a small dataset with 10 movie reviews.
+ 
+Five reviews are positive and five are negative.
+ 
+Your task is to train a model that can determine the sentiment of the reviews.
+ 
+Dataset
+corpus = [
+    "the movie was fantastic and i loved every part of it",
+    "an absolute masterpiece with brilliant acting",
+    "the film was boring and too long",
+    "i really enjoyed the story and the visuals",
+    "the plot was terrible and the acting was even worse",
+    "what a wonderful experience, highly recommend",
+    "not worth my time, very disappointing",
+    "a truly great film, i will watch it again",
+    "the script was weak and the characters were flat",
+    "an amazing journey from start to finish"
+]
+ 
+categories = [
+    "Positive", "Positive", "Negative", "Positive", "Negative",
+    "Positive", "Negative", "Positive", "Negative", "Positive"
+]
+ 
+test_corpus = [
+    "the movie was great",
+    "i hated the film",
+    "a boring and bad story",
+    "absolutely loved it"
+]
+ 
+Tasks
+ 
+Transform the text into numerical vectors using CountVectorizer.
+Train a classifier on the training data.
+Predict the sentiment of the test sentences.
+Show the predictions.
+Calculate how many test sentences were classified correctly.
+
+
+Part 2 – Investigate the Model
+ 
+Answer the following questions.
+What happens if you change ngram_range from (1,1) to (1,2)?
+Why might bigrams help in sentiment analysis?
+Which of the test sentences were classified incorrectly?
+Why might the sentence "the movie was not good" be difficult for a simple bag-of-words model?
+What would likely happen if you had 1000 reviews instead of 10?
+
+
+
+Part 3 – Improve the Model (Extension Challenge)
+Try to improve your classifier.
+ 
+Test at least three of the following changes:
+use stop_words="english"
+change ngram_range
+try another classification model
+add at least 6 new movie reviews
+create your own test sentences
+clean the text before vectorizing it
+For each change:
+Show the code modification
+Show the new predictions or accuracy
+Explain whether the result improved or not
+
+
+
+
+Part 4 – Understanding the Limitations
+Your current model uses a very simple approach called bag-of-words.
+This means the model only knows which words appear in the text, but it does not truly understand the meaning of the sentence.
+ 
+Test your model with the following sentences:
+ 
+"the movie was not good"
+"the acting was not bad"
+"visually impressive but boring"
+"i wanted to like it"
+Then answer the following questions:
+ 
+Which of these sentences were classified incorrectly?
+Why might the model struggle with sentences that contain negations like "not good" or "not bad"?
+Why might sarcasm or mixed opinions be difficult for this type of model?
+What information about the sentence meaning is lost when we only count words?
+Part 5 – From Bag-of-Words to Modern NLP
+The model you built in this lab represents text using word counts.
+ 
+However, modern NLP systems often use more advanced techniques such as:
+word embeddings (Word2Vec, GloVe)
+contextual embeddings
+transformer models (such as BERT)
+Answer the following questions:
+What is the main limitation of representing text using only word counts?
+Why might a model that understands word context perform better?
+What kinds of problems in language might require more advanced NLP models?
+
+
+
+Final Reflection
+ 
+Write a short conclusion (5–10 sentences).
+ 
+Answer the following:
+Which version of your model worked best?
+Why do you think it performed better?
+What are the limitations of this small dataset?
+What would you change if you were building a real sentiment classifier?
+Bonus 🌟
+ 
+Create three tricky sentences of your own that might confuse the model.
+ 
+Examples:
+sentences with negation
+sentences with mixed sentiment
+sentences with sarcasm
+Run them through your classifier and explain the results.
