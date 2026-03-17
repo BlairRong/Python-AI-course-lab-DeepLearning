@@ -1,0 +1,13 @@
+input,output,decoding,tokens_out,constraint_passed,notes
+The movie was fantastic and I enjoyed every minute.,The movie was fantastic and I enjoyed every minute.,beam,9,True,
+The movie was fantastic and I enjoyed every minute.,I enjoyed every minute of the movie.,sampling,7,False,too short (7 words)
+The weather today is quite pleasant and sunny as well.,The weather today is quite pleasant and sunny.,beam,8,True,
+The weather today is quite pleasant and sunny as well.,The weather today is quite pleasant and sunny.,sampling,8,True,
+I found the book to be incredibly boring and too long.,I found the book to be incredibly boring and too long.,beam,11,True,
+I found the book to be incredibly boring and too long.,I found the book to be incredibly boring and too long.,sampling,11,True,
+The sunset painted the sky in beautiful shades of orange and pink.,The sunset painted the sky in beautiful shades of orange and pink.,beam,12,True,
+The sunset painted the sky in beautiful shades of orange and pink.,The sunset painted the sky in beautiful shades of orange and pink.,sampling,12,True,
+The new restaurant in town serves delicious food.,The new restaurant in town serves delicious food.,beam,8,True,
+The new restaurant in town serves delicious food.,The new restaurant in town serves delicious food.,sampling,8,True,
+I can't believe how fast time flies when you're having fun.,I can't believe how fast time flies when you're having fun.,beam,11,True,
+I can't believe how fast time flies when you're having fun.,I can't believe how fast time flies when you're having fun.,sampling,11,True,

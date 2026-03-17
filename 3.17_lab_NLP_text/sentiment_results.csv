@@ -1,0 +1,8 @@
+input,raw_label,raw_score,neutral_label
+The movie was fantastic and I enjoyed every minute.,POSITIVE,0.9999,POSITIVE
+"The weather today is quite pleasant, not too hot.",POSITIVE,0.9998,POSITIVE
+I found the book incredibly boring and too long.,NEGATIVE,0.9998,NEGATIVE
+The sunset painted the sky in beautiful shades of orange and pink.,POSITIVE,0.9994,POSITIVE
+The new restaurant in town serves delicious food and great service.,POSITIVE,0.9999,POSITIVE
+I can't believe how fast time flies when you're having fun.,POSITIVE,0.9987,POSITIVE
+"The library was silent, filled with old books and memories.",NEGATIVE,0.9864,NEGATIVE
