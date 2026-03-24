@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Siying Rong | Projects</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">About Me</a></li>
+                <li><a href="projects.html" class="active">Projects</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="projects">
+            <h2>Projects</h2>
+
+            <!-- Project 1: Cat vs Dog -->
+            <div class="project-card">
+                <h3>🐱🐶 Cat vs Dog Image Classifier(CNN)</h3>
+                <img src="images/catdog_result.png" alt="Cat vs Dog training results">
+                <div class="project-description">
+                    <p><strong>3-Day Deep Learning Challenge: From Zero to 90% Accuracy on Kaggle's Cats vs Dogs</strong><br>
+                    I built a CNN(Convolutional Neural Network) from scratch achieving 90.2% validation accuracy using only custom architecture and data augmentation. This project taught me the full pipeline of image classification, from data collection to deployment.</p>
+                    <p><strong>Key achievements:</strong> Data augmentation, custom 4-block CNN, early stopping, and model checkpointing. Final validation accuracy: 90.2%.</p>
+                    <p><strong>Challenges:</strong> Long training time on CPU; learned to optimise with GPU (Google Colab).</p>
+                </div>
+            </div>
+
+            <!-- Project 2: YOLO Object Detection -->
+            <div class="project-card">
+                <h3>🚀 Real-Time Object Detection with YOLOv8</h3>
+                <img src="images/yolo_demo.png" alt="YOLO real-time detection demo">
+                <div class="project-description">
+                    <p><strong>3-Day Deep Learning Challenge: Real-Time Object Detection - From 68% to 85% mAP50 Through Optimization</strong><br>
+                    I trained a YOLOv8 model to recognise a red cup, blue bottle, and phone. I started with a free GPU on Google Colab to speed up experiments, then moved to local CPU to compare performance.</p>
+                    <p><strong>Key achievements:</strong> Data collection via Pixabay API, manual YOLO-format labeling, hyperparameter tuning, and deployment to live webcam feed.</p>
+                    <p><strong>Result:</strong> Achieved 85% mAP50(mean Average Precision) on validation set, indicating that the detection accuracy is quite ideal under relaxed matching criteria. Meanwhile, the model achieved an inference speed of 4 to 5 FPS(Frames Per Second) on the CPU, with a single image processing time of approximately 0.2 seconds, demonstrating the effectiveness of the lightweight design and its potential for deployment on edge devices.</p>
+                </div>
+            </div>
+
+            <!-- Project 3: Titanic Survival Prediction -->
+            <div class="project-card">
+                <h3>🚢 Titanic Survival Prediction (Django + ML)</h3>
+                <video controls width="100%">
+                    <source src="images/titanic_demo.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="project-description">
+                    <p><strong>Team Project (4-person agile team) - 2 weeks</strong><br>
+                    Developed a full-stack ML web app using Django and scikit-learn. I was responsible for database model design (Prediction table), prediction form with validation, and integration of a Logistic Regression model.</p>
+                    <p><strong>Outcome:</strong> A fully functional web app that predicts survival chances based on passenger data, with persistent storage of results.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2026 Siying Rong. Built with 💙</p>
+    </footer>
+</body>
+</html>
