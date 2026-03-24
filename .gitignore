@@ -33,5 +33,5 @@ yolo/
 # 忽略 macOS 系统文件
 .DS_Store
 
-# 允许今天作业的图片和视频
+# 允许3.24作业的图片和视频
 !3.24_lab_myportfolio/images/
